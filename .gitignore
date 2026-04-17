@@ -1,3 +1,19 @@
-.venv/
-.env
+# Python
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Secrets
+config.py
+.env
+
+# OS
+.DS_Store
+Thumbs.db
