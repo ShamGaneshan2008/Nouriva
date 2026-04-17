@@ -1,4 +1,4 @@
-# 🧠 AI Meal Planner (Nouri)
+# 🧠 AI Meal Planner (Nouriva)
 
 > An intelligent AI-powered nutrition assistant that generates personalized meal plans and provides real-time dietary guidance.
 
