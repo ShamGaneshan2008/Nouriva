@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verdish — Eat with Intention</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/static/css/main.css" />
+  <link rel="stylesheet" href="/static/css/nav.css" />
+  <link rel="stylesheet" href="/static/css/profile.css" />
+  <link rel="stylesheet" href="/static/css/plan.css" />
+  <link rel="stylesheet" href="/static/css/chat.css" />
+</head>
+<body>
+
+  <!-- Background texture -->
+  <div class="bg-texture"></div>
+
+  <!-- ── NAV ── -->
+  <header class="nav-shell">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">
+        <span class="logo-leaf">✦</span>
+        <span>verdish</span>
+      </a>
+
+      <nav class="nav-tabs" role="tablist">
+        <button class="nav-tab active" role="tab" data-tab="profile" aria-selected="true">
+          <span class="tab-icon">◎</span> Profile
+        </button>
+        <button class="nav-tab" role="tab" data-tab="plan" aria-selected="false">
+          <span class="tab-icon">◈</span> Meal Plan
+        </button>
+        <button class="nav-tab" role="tab" data-tab="nouri" aria-selected="false">
+          <span class="tab-icon">◉</span> Ask Nouri
+        </button>
+      </nav>
+
+      <div class="nav-badge">
+        <span class="badge-dot"></span> AI-powered
+      </div>
+    </div>
+  </header>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="content-shell">
+
+    <!-- ── PROFILE TAB ── -->
+    <section id="tab-profile" class="tab-panel active" role="tabpanel">
+      <div class="panel-header">
+        <p class="panel-eyebrow">Your body, your goals</p>
+        <h1 class="panel-title">Build Your Profile</h1>
+        <p class="panel-subtitle">Tell us about yourself so we can craft a nutrition plan that actually fits your life.</p>
+      </div>
+
+      <div class="profile-grid">
+
+        <!-- Personal Info -->
+        <div class="card card--full">
+          <h2 class="card-label">Personal Info</h2>
+          <div class="field-row">
+            <div class="field-group">
+              <label for="age">Age</label>
+              <input type="number" id="age" placeholder="e.g. 28" min="10" max="100" />
+            </div>
+            <div class="field-group">
+              <label>Sex</label>
+              <div class="toggle-row">
+                <button class="toggle-btn active" data-group="sex" data-value="male">Male</button>
+                <button class="toggle-btn" data-group="sex" data-value="female">Female</button>
+              </div>
+            </div>
+            <div class="field-group">
+              <label for="height">Height (cm)</label>
+              <input type="number" id="height" placeholder="e.g. 175" min="100" max="250" />
+            </div>
+            <div class="field-group">
+              <label for="weight">Weight (kg)</label>
+              <input type="number" id="weight" placeholder="e.g. 72" min="30" max="300" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Level -->
+        <div class="card">
+          <h2 class="card-label">Activity Level</h2>
+          <div class="activity-stack">
+            <button class="activity-btn active" data-group="activity" data-value="sedentary">
+              <span class="activity-icon">🪑</span>
+              <span class="activity-name">Sedentary</span>
+              <span class="activity-desc">Little or no exercise</span>
+            </button>
+            <button class="activity-btn" data-group="activity" data-value="light">
+              <span class="activity-icon">🚶</span>
+              <span class="activity-name">Lightly Active</span>
+              <span class="activity-desc">1–3 days/week</span>
+            </button>
+            <button class="activity-btn" data-group="activity" data-value="moderate">
+              <span class="activity-icon">🏃</span>
+              <span class="activity-name">Moderately Active</span>
+              <span class="activity-desc">3–5 days/week</span>
+            </button>
+            <button class="activity-btn" data-group="activity" data-value="very">
+              <span class="activity-icon">⚡</span>
+              <span class="activity-name">Very Active</span>
+              <span class="activity-desc">6–7 days/week</span>
+            </button>
+            <button class="activity-btn" data-group="activity" data-value="extra">
+              <span class="activity-icon">🔥</span>
+              <span class="activity-name">Extra Active</span>
+              <span class="activity-desc">Athletic / physical job</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Goal -->
+        <div class="card">
+          <h2 class="card-label">Your Goal</h2>
+          <div class="goal-stack">
+            <button class="goal-btn" data-group="goal" data-value="lose">
+              <span class="goal-icon">↓</span>
+              <span class="goal-name">Lose Weight</span>
+            </button>
+            <button class="goal-btn active" data-group="goal" data-value="maintain">
+              <span class="goal-icon">↔</span>
+              <span class="goal-name">Maintain</span>
+            </button>
+            <button class="goal-btn" data-group="goal" data-value="gain">
+              <span class="goal-icon">↑</span>
+              <span class="goal-name">Build Muscle</span>
+            </button>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Dietary Preferences -->
+          <h2 class="card-label" style="margin-top: 0;">Dietary Preferences</h2>
+          <div class="diet-chips" id="diet-chips">
+            <button class="chip" data-value="vegetarian">Vegetarian</button>
+            <button class="chip" data-value="vegan">Vegan</button>
+            <button class="chip" data-value="gluten-free">Gluten-Free</button>
+            <button class="chip" data-value="dairy-free">Dairy-Free</button>
+            <button class="chip" data-value="keto">Keto</button>
+            <button class="chip" data-value="paleo">Paleo</button>
+            <button class="chip" data-value="halal">Halal</button>
+            <button class="chip" data-value="kosher">Kosher</button>
+          </div>
+        </div>
+
+        <!-- TDEE Result Card -->
+        <div class="card card--result" id="tdee-card">
+          <div class="result-eyebrow">Daily Energy Needs</div>
+          <div class="result-value" id="tdee-value">—</div>
+          <div class="result-unit">kcal / day</div>
+          <div class="macro-row" id="macro-row">
+            <div class="macro-item">
+              <span class="macro-val" id="macro-protein">—</span>
+              <span class="macro-label">Protein</span>
+            </div>
+            <div class="macro-divider"></div>
+            <div class="macro-item">
+              <span class="macro-val" id="macro-carbs">—</span>
+              <span class="macro-label">Carbs</span>
+            </div>
+            <div class="macro-divider"></div>
+            <div class="macro-item">
+              <span class="macro-val" id="macro-fat">—</span>
+              <span class="macro-label">Fat</span>
+            </div>
+          </div>
+          <button class="cta-btn" id="calc-btn">Calculate My Needs</button>
+        </div>
+
+      </div><!-- /profile-grid -->
+    </section>
+
+    <!-- ── MEAL PLAN TAB ── -->
+    <section id="tab-plan" class="tab-panel" role="tabpanel">
+      <div class="panel-header">
+        <p class="panel-eyebrow">Curated for you</p>
+        <h1 class="panel-title">Your Meal Plan</h1>
+        <p class="panel-subtitle">A week of balanced, delicious meals built around your goals and preferences.</p>
+      </div>
+
+      <div class="plan-controls">
+        <button class="plan-gen-btn" id="gen-plan-btn">
+          <span class="btn-icon">✦</span>
+          Generate My Plan
+        </button>
+        <div class="plan-meta" id="plan-meta"></div>
+      </div>
+
+      <div id="plan-loading" class="plan-loading hidden">
+        <div class="spinner"></div>
+        <p>Nouri is crafting your plan…</p>
+      </div>
+
+      <div id="plan-output" class="plan-output"></div>
+    </section>
+
+    <!-- ── ASK NOURI TAB ── -->
+    <section id="tab-nouri" class="tab-panel" role="tabpanel">
+      <div class="panel-header">
+        <p class="panel-eyebrow">Your AI nutrition coach</p>
+        <h1 class="panel-title">Ask Nouri</h1>
+        <p class="panel-subtitle">Ask anything — recipes, macros, meal swaps, nutrition science, or what to eat tonight.</p>
+      </div>
+
+      <div class="chat-shell">
+        <div class="chat-messages" id="chat-messages">
+          <!-- Welcome bubble -->
+          <div class="msg msg--nouri">
+            <div class="msg-avatar">N</div>
+            <div class="msg-bubble">
+              Hey! I'm Nouri 🌿 I'm your personal nutrition coach. Ask me anything about food, meals, macros, or recipes — I'm here to help you eat with intention.
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-input-row">
+          <textarea
+            id="chat-input"
+            class="chat-input"
+            placeholder="Ask Nouri anything…"
+            rows="1"
+          ></textarea>
+          <button class="chat-send-btn" id="chat-send">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /content-shell -->
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/calculator.js"></script>
+  <script src="/static/js/tabs.js"></script>
+  <script src="/static/js/plan.js"></script>
+  <script src="/static/js/chat.js"></script>
+</body>
+</html>

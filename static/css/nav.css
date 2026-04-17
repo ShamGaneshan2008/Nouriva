@@ -1,0 +1,126 @@
+/* ─────────────────────────────────────────
+   nav.css — Verdish navbar
+   ───────────────────────────────────────── */
+
+.nav-shell {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0 24px;
+  background: rgba(247,244,238,.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(122,158,126,.14);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ── Logo ── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--moss);
+  letter-spacing: -.01em;
+  flex-shrink: 0;
+}
+
+.logo-leaf {
+  color: var(--sage);
+  font-style: normal;
+  font-size: 1rem;
+  animation: leafSpin 6s linear infinite;
+}
+@keyframes leafSpin {
+  0%, 80%  { transform: rotate(0deg); }
+  90%      { transform: rotate(180deg); }
+  100%     { transform: rotate(360deg); }
+}
+
+/* ── Tabs ── */
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-body);
+  font-size: .84rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all var(--transition);
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+
+.nav-tab .tab-icon {
+  font-size: .75rem;
+  opacity: .5;
+  transition: opacity var(--transition);
+}
+
+.nav-tab:hover {
+  background: rgba(122,158,126,.1);
+  color: var(--sage-dark);
+}
+
+.nav-tab.active {
+  background: rgba(122,158,126,.14);
+  color: var(--moss);
+}
+.nav-tab.active .tab-icon {
+  opacity: 1;
+}
+
+/* ── Badge ── */
+.nav-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sage);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .4; transform: scale(.8); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .nav-shell { padding: 0 12px; }
+  .nav-badge { display: none; }
+  .nav-tab { padding: 8px 10px; font-size: .78rem; }
+  .nav-inner { gap: 12px; }
+}

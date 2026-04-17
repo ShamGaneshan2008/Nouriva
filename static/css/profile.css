@@ -1,0 +1,126 @@
+/* ─────────────────────────────────────────
+   profile.css — Profile tab styles
+   ───────────────────────────────────────── */
+
+/* ── Profile grid layout ── */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Staggered card animations */
+.profile-grid .card:nth-child(1) { animation-delay: .05s; }
+.profile-grid .card:nth-child(2) { animation-delay: .1s; }
+.profile-grid .card:nth-child(3) { animation-delay: .15s; }
+.profile-grid .card:nth-child(4) { animation-delay: .2s; }
+
+/* ── Activity stack ── */
+.activity-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.activity-btn {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  background: var(--cream);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: left;
+}
+
+.activity-btn:hover {
+  background: rgba(122,158,126,.08);
+  border-color: var(--sage-light);
+}
+
+.activity-btn.active {
+  background: rgba(122,158,126,.12);
+  border-color: var(--sage);
+}
+
+.activity-icon {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.activity-name {
+  font-size: .87rem;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+.activity-desc {
+  font-size: .73rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+
+/* ── Goal stack ── */
+.goal-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.goal-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--cream);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: left;
+}
+
+.goal-btn:hover {
+  border-color: var(--sage-light);
+  background: rgba(122,158,126,.06);
+}
+
+.goal-btn.active {
+  background: rgba(122,158,126,.13);
+  border-color: var(--sage);
+}
+
+.goal-icon {
+  font-size: 1rem;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(122,158,126,.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--moss);
+  flex-shrink: 0;
+}
+
+.goal-btn.active .goal-icon {
+  background: var(--sage);
+  color: var(--white);
+}
+
+.goal-name {
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+/* ── Responsive ── */
+@media (max-width: 780px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}

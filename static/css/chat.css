@@ -1,0 +1,178 @@
+/* ─────────────────────────────────────────
+   chat.css — Ask Nouri chat styles
+   (linked via main.css or index.html)
+   ───────────────────────────────────────── */
+
+/* ── Chat shell ── */
+.chat-shell {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 260px);
+  min-height: 400px;
+  background: rgba(255,255,255,.65);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(122,158,126,.18);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  animation: fadeUp .4s ease both;
+}
+
+/* ── Messages area ── */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 28px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  scroll-behavior: smooth;
+}
+
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-track { background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background: var(--cream-dark); border-radius: 2px; }
+
+/* ── Message bubbles ── */
+.msg {
+  display: flex;
+  gap: 12px;
+  max-width: 78%;
+  animation: fadeUp .25s ease both;
+}
+
+.msg--user {
+  flex-direction: row-reverse;
+  align-self: flex-end;
+}
+
+.msg-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--moss), var(--sage));
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: .85rem;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  box-shadow: 0 2px 8px rgba(61,92,64,.2);
+}
+
+.msg--user .msg-avatar {
+  background: var(--earth-light);
+  color: var(--charcoal);
+}
+
+.msg-bubble {
+  font-size: .91rem;
+  line-height: 1.65;
+  color: var(--charcoal);
+  padding: 12px 16px;
+  border-radius: var(--radius-lg);
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+}
+
+.msg--user .msg-bubble {
+  background: linear-gradient(135deg, var(--moss), var(--sage-dark));
+  color: var(--white);
+  border-color: transparent;
+}
+
+/* Nouri typing indicator */
+.msg-bubble.typing {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 14px 18px;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sage);
+  animation: typingBounce 1.2s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: .15s; }
+.typing-dot:nth-child(3) { animation-delay: .3s; }
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: .5; }
+  30%           { transform: translateY(-5px); opacity: 1; }
+}
+
+/* ── Input row ── */
+.chat-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 14px 20px 16px;
+  border-top: 1px solid var(--cream-dark);
+  background: rgba(247,244,238,.6);
+}
+
+.chat-input {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: .92rem;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius-lg);
+  padding: 11px 16px;
+  outline: none;
+  resize: none;
+  min-height: 44px;
+  max-height: 140px;
+  line-height: 1.5;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  overflow-y: auto;
+}
+
+.chat-input:focus {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(122,158,126,.12);
+}
+
+.chat-input::placeholder { color: var(--earth-light); }
+
+.chat-send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--moss), var(--sage-dark));
+  border: none;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all var(--transition);
+  box-shadow: 0 3px 10px rgba(61,92,64,.25);
+}
+
+.chat-send-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 5px 16px rgba(61,92,64,.3);
+}
+
+.chat-send-btn:active { transform: scale(.96); }
+.chat-send-btn:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .chat-shell { height: calc(100vh - 200px); }
+  .chat-messages { padding: 18px 16px 12px; }
+  .msg { max-width: 90%; }
+}
